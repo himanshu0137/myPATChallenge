@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .container.mt-3
+    .row
+      .card-deck
+        each app in appData
+          .card.mb4(style="min-width: 18rem; max-width: 18rem;")
+            img.card-img-top(src=app.coverArt, alt=app.name)
+            .card-body
+              h5.card-title= app.name
+

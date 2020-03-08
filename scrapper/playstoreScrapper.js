@@ -4,7 +4,7 @@ class PlayStoreScrapper {
     constructor() { }
     async init(pageUrl) {
         this.pageUrl = pageUrl;
-        this.browser = await puppeteer.launch();
+        this.browser = await puppeteer.launch({ args: ['--no-sandbox'] });
         this.page = await this.browser.newPage();
     }
     async getStoreData() {

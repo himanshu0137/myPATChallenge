@@ -24,7 +24,7 @@ module.exports = function (db) {
     let appData = await appCollection.findOne({ appId: appId });
     if(appData.additionalInfo){
       const info = {}
-      appData.additionalInfo.keys().forEach(key => {
+      Object.keys(appData.additionalInfo).forEach(key => {
         info[key.replace(/ /, ' ')] = appData.additionalInfo[key]
       });
       appData.additionalInfo = info;

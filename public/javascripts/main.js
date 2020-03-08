@@ -8,7 +8,7 @@ function InitModal() {
 
     document.querySelector("#refresh").addEventListener("click", function (e) {
         modal.classList.remove("hidden");
-        fetch('./refresh')
+        fetch('./refresh').then(x => location.reload()).catch(x => location.reload());
     });
 }
 

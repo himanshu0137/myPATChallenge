@@ -1,6 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
 
-const url = 'mongodb://localhost:27017';
+// const url = process.env.MongoURI || 'mongodb://localhost:27017';
+const url = "mongodb+srv://himanshu:himanshu_mypat@cluster0-jt1k5.mongodb.net/test?retryWrites=true&w=majority"
 const dbName = 'myPatDatabase';
 var db;
 

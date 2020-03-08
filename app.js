@@ -22,8 +22,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 InitDb().then(db => {
   const indexRouter = require('./routes/index')(db);
   app.use('/', indexRouter);
-  fetchRecords(db).then(y => {
-    console.log('Records Updated');
+  // fetchRecords(db).then(y => {
+    // console.log('Records Updated');
     server.listen(port);
-  });
+  // });
 });

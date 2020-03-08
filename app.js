@@ -19,10 +19,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-
 InitDb().then(db => {
   const indexRouter = require('./routes/index')(db);
   app.use('/', indexRouter);

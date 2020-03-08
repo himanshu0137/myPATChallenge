@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  h1= "App Details"
+  .container.mt-3
+    .jumbotron.jumbotron-fluid
+      .container
+        .row
+          .col-sm-4
+            img(src=app.coverArt)
+          .col-sm-8
+            h1.display-4= app.name
+            p= app.genre
+            p= app.rating
+            a(href=app.url)= "Download"
+    h4= "Images"
+    if app.trailer
+      video(src=app.trailer)
+    .row.text-center.text-lg-left
+      each image in app.screenShots
+        .col-lg-3.col-md-4.col-6
+          a.d-block.mb-4.h-100
+            img(src=image).img-fluid.img-thumbnail
+    
+    h4= "Description"
+    p(style="white-space: pre-wrap;")= app.description
+
+    h4= "Additional Details"
+    table.table
+      each value, key in app.additionalInfo
+        tr
+          th= key
+          th= value
+

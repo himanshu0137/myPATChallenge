@@ -1,12 +1,20 @@
 extends layout
 
 block content
+  h1= "myPAT Developer Challenge"
+  button.btn.btn-primary(onclick="refresh()", id="refresh")= "Refresh"
   .container.mt-3
     .row
       .card-deck
         each app in appData
-          .card.mb4(style="min-width: 18rem; max-width: 18rem;")
-            img.card-img-top(src=app.coverArt, alt=app.name)
+          .card.mb-3(style="min-width: 12rem; max-width: 12rem;")
+            img.card-img-top(src=app.coverArt, alt=app.name, onclick="openApp('" + app.appId + "')")
             .card-body
               h5.card-title= app.name
+              p.card-text
+                small.text-muted= app.rating
 
+  .modal.hidden
+    .container
+      .body
+        p= "Please Wait while database is Re-Populating"
